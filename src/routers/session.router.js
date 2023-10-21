@@ -1,5 +1,5 @@
 import { Router } from "express";
-import userModel from "../dao/mongoosedb/models/user.model.js"
+import userModel from "../service/dao/mongoosedb/models/user.model.js"
 import passport from "passport";//11
 
 

@@ -1,7 +1,7 @@
-import { productoModel } from "../models/producto.model.js"
+import {productoModel}  from "../models/producto.model.js"
 
 
-export default class managerProducto {
+export default class  productService {
 
     paginateProductos = async (limit,page) => {
         try {
@@ -27,8 +27,9 @@ export default class managerProducto {
         }
     }
 
-    getProduct = async () => {
+    getProducto = async () => {
         try {
+            console.log("desde serv");
             const productos = await productoModel.find().lean()
             return productos
         } catch (error) {

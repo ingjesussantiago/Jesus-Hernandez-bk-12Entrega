@@ -1,23 +1,23 @@
 import { Router} from "express"
-import  managerProducto from "../dao/mongoosedb/managerMongose/managerProductoMoogose.js"
+//import  managerProducto from "../dao/mongoosedb/managerMongose/managerProductoMoogose.js"
 import { __dirname } from "../../utils.js"
 import session from "express-session"
 
 
 const router = Router()
 
-const ManagerProducto = new managerProducto()
+// const ManagerProducto = new managerProducto()
 
-router.get("/home", async (req, res) => {
-    try {
-        const productos = await ManagerProducto.getProduct()
-    res.render("home",{ productos })
-    // res.json({ productos })
-    } catch (error) {
-        console.log(error);
-    }
+// router.get("/home", async (req, res) => {
+//     try {
+//         const productos = await ManagerProducto.getProduct()
+//     res.render("home",{ productos })
+//     // res.json({ productos })
+//     } catch (error) {
+//         console.log(error);
+//     }
     
-})
+// })
 
 router.get("/realTimeProductos", (req, res) => {
     res.render("realTimeProducts")

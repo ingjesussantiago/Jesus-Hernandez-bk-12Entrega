@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { __dirname } from "../../utils.js"
-import managerUser from "../dao/mongoosedb/managerMongose/managerUserMongoose.js"
+import managerUser from "../service/dao/mongoosedb/managerMongose/managerUserMongoose.js"
 
 
 

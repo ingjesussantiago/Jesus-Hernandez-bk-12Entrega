@@ -1,6 +1,6 @@
-import { cartModel } from "../models/cart.model.js";
+import { cartModel } from "../models/cart.model.js"
 
-export default class ManagerCart {
+export default class cartService {
 
     getCarts = async () => {
         try {
