@@ -2,6 +2,9 @@ import {productoModel}  from "../models/producto.model.js"
 
 
 export default class  productService {
+    constructor(){
+        console.log("trabajando product");
+    }
 
     paginateProductos = async (limit,page) => {
         try {

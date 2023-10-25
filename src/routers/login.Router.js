@@ -19,7 +19,7 @@ router.post("/prueba", async (req, res) => {
     }
 })
 
-
+//ELIMINAR ESTA SOLO ES PRUEBA DE ESTUDIO
 
 
 export default router

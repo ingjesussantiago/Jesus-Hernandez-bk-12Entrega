@@ -1,10 +1,10 @@
+import mongoose from "mongoose";
 import userModel from "../models/user.model.js"
 import { cartModel } from "../models/cart.model.js";
 import { productoModel } from "../models/producto.model.js"
-import mongoose, { get } from "mongoose";
 
 
-export default class ManagerCart {
+export default class UserService {
 
     addCartToUser = async (id) => {
         try {
@@ -78,22 +78,5 @@ export default class ManagerCart {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

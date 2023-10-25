@@ -1,13 +1,10 @@
-import  productService from "../service/dao/mongoosedb/managerMongose/managerProductoMoogose.js"
-import { uploader } from "../../utils.js"
-//este hay que sustituir por factory
-
-const ProductService =new productService()
+import {productService} from "../service/factory.js"
+import { uploader } from "../../utils.js";
 
 export async function paginateProductos (req, res) {
     try {
         const {limit=10,page=1}=req.query
-        const productos = await ProductService.paginateProductos(limit,page)
+        const productos = await productService.paginateProductos(limit,page)
     // res.render("products", { productos })
     res.json({ productos })
     } catch (error) {
@@ -17,7 +14,7 @@ export async function paginateProductos (req, res) {
 
 export async function getProductAgregation (req, res){
     try {
-        const productosFiltrados= await ProductServiceroductService.getProductAgregation()
+        const productosFiltrados= await productService.getProductAgregation()
         // res.render("formulario")
         // res.render("home", { productosFiltrados })
          res.json({ productosFiltrados })
@@ -32,7 +29,7 @@ export async function getProductAgregation (req, res){
 export async function getProduct  (req, res) {
     try {
         console.log("desde get")
-        const productos = await ProductService.getProducto()
+        const productos = await productService.getProducto()
         console.log("resulta");
         // res.render("formulario")
     //  res.render("home", { productos })
@@ -49,7 +46,7 @@ export async function getProduct  (req, res) {
 export async function getProductoById (req, res){
     try {
         const { id } = req.params
-        const producto = await ProductService.getProductoById(id)
+        const producto = await productService.getProductoById(id)
         // res.json({producto})
         res.render("detalle", { producto })
     } catch (error) {
@@ -83,9 +80,9 @@ export async function addProduct (req, res) {
         console.log(producto.thumbnails);
 
 
-        const nuevoProducto = await ProductService.addProduct(producto)
+        const nuevoProducto = await productService.addProduct(producto)
         res.json({ message: "Producto creado", producto: nuevoProducto })
-        //res.redirect("/api/products")
+        // res.redirect("/api/products")
     } catch (error) {
         console.log(error);
     }
@@ -93,14 +90,14 @@ export async function addProduct (req, res) {
 }
 
 export async function delateProduct (req, res) {
-    const message = await ProductService.delateProduct()
+    const message = await productService.delateProduct()
     res.json({ message })
 }
 
 export async function delateProductById (req, res) {
     try {
         const { idProducto } = req.params
-        const message = await ProductService.delateProductById(idProducto)
+        const message = await productService.delateProductById(idProducto)
         res.json({ message })
     } catch (error) {
         console.log(error);
@@ -113,7 +110,7 @@ export async function upDateProduc (req, res) {
         const { idProducto } = req.params
         const productoup = req.body
         // const updateOptions={new:true}
-        const producto = await ProductService.upDateProduc(idProducto, productoup)
+        const producto = await productService.upDateProduc(idProducto, productoup)
         res.json({ producto })
     } catch (error) {
         console.log(error);

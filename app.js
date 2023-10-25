@@ -18,6 +18,7 @@ import mongoose from "mongoose"
 import passport from "passport"
 import initializePassport from "./src/config/passport.config.js"
 import config from "./src/config/config.js";
+import MongoSingleton from "./src/config/mongodb-singleton.js"
 
 
 const app = express()
@@ -81,6 +82,18 @@ const PORT = config.PORT
 const httpServer = app.listen(PORT, () => {
     console.log(`escuchando puerto con htpp ${PORT} y socket io `)
 })
+
+
+const mongoInstance = async () => {
+    try {
+        await MongoSingleton.getIntance()
+    } catch (error) {
+        console.log(error);
+    }
+}
+mongoInstance()
+
+
 
 console.log(process.env.PORT);
 console.log(process.env.MONGO_URL)
